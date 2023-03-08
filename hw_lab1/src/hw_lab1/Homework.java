@@ -65,6 +65,7 @@ public class Homework {
 		}
 		else {
 			printMatrix(matrix);
+			System.out.println((endTime-startTime) + "ns");
 		}
 	}
 	
