@@ -173,7 +173,7 @@ public class Context {
      * @return Whether the operation was successful
      *
      */
-    public boolean link(Location location1, Location location2, long length) {
+    public boolean link(Location location1, Location location2, double length) {
         if(location1 == null || location2 == null) {
             System.out.println("Location does not exist in this context");
             return false;

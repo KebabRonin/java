@@ -16,15 +16,20 @@ public class Road {
      */
     private double length;
 
+    public static double eucl_dist(Location location1, Location location2) {
+        return sqrt(
+                ((location1.getX() - location2.getX()) * (location1.getX() - location2.getX())) +
+                        ((location1.getY() - location2.getY()) * (location1.getY() - location2.getY())));
+    }
+
     public Road(Location location1, Location location2) {
         if(location1.equals(location2)) {
             System.out.println("Can't have road to and from the same location");
         }
-        this.length = sqrt(
-                ((location1.getX() - location2.getX()) * (location1.getX() - location2.getX())) +
-                      ((location1.getY() - location2.getY()) * (location1.getY() - location2.getY())));
+
         this.location1 = location1;
         this.location2 = location2;
+        this.length = eucl_dist(this.location1, this.location2);
 
         this.link();
     }
@@ -75,6 +80,9 @@ public class Road {
         roads = this.location1.getRoads();
         roads.remove(this);
         this.location1 = location1;
+        this.length = eucl_dist(this.location1, this.location2);
+        roads = this.location1.getRoads();
+        roads.add(this);
     }
     public Location getLocation2() {
         return location2;
@@ -89,8 +97,10 @@ public class Road {
         roads = this.location2.getRoads();
         roads.remove(this);
         this.location2 = location2;
+        this.length = eucl_dist(this.location1, this.location2);
         roads = this.location2.getRoads();
         roads.add(this);
+
     }
     public double getLength() {
         return length;
@@ -98,6 +108,9 @@ public class Road {
     public void setLength(double length) {
         if(length < 0 ) {
             System.out.println("Road cannot have negative length!");
+        }
+        else if (length < eucl_dist(this.location1, this.location2)) {
+          System.out.println("Road cannot be less than the euclidean distance");
         }
         else {
             this.length = length;

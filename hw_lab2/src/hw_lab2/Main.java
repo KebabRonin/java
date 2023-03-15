@@ -84,7 +84,9 @@ public class Main {
                 r2 = Random.random() % c.locationVector.size();
                 if(r1 == r2) r2 = (r2 + 1) % c.locationVector.size();
             //} while(!c.link(c.locationVector.elementAt(r1), c.locationVector.elementAt(r2), Random.random()%1000));
-            c.link(c.locationVector.elementAt(r1), c.locationVector.elementAt(r2), Random.random()%1000);
+            double r3 = Road.eucl_dist(c.locationVector.elementAt(r1), c.locationVector.elementAt(r2)) + Random.random()%1000;
+            //System.out.println(r3 + " " + Road.eucl_dist(c.locationVector.elementAt(r1), c.locationVector.elementAt(r2)));
+            c.link(c.locationVector.elementAt(r1), c.locationVector.elementAt(r2), r3);
         }
 
         return new Problem(c, src, dest);
