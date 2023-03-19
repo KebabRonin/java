@@ -11,8 +11,16 @@ public class Network {
     public int computeImportance(Node n) {
         int connections = 0;
 
+        if(!nodeList.contains(n)) {
+            return 0;
+        }
+
         if(n instanceof Person) {
-            connections += ((Person) n).getRelationships().size();
+            for(Node k : ((Person) n).getRelationships().values()) {
+                if( nodeList.contains(k)) {
+                    connections += 1;
+                }
+            }
         }
 
         for(Node i : nodeList) {
@@ -31,5 +39,16 @@ public class Network {
 
     public void setNodeList(List<Node> nodeList) {
         this.nodeList = nodeList;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        //Comparator<Node> c = new Comparator<>()
+        nodeList.sort((a,b) -> computeImportance(b) - computeImportance(a));
+        for (Node n : nodeList) {
+            sb.append(this.computeImportance(n)).append(". ").append(n.getName()).append("\n");
+        }
+        return sb.toString();
     }
 }

@@ -1,5 +1,4 @@
-import java.util.Date;
-import java.util.Map;
+import java.util.*;
 
 public class Person implements java.lang.Comparable<Person>, Node {
     private String name;
@@ -9,6 +8,7 @@ public class Person implements java.lang.Comparable<Person>, Node {
     public Person(String name, Date dateOfBirth) {
         this.setName(name);
         this.setDateOfBirth(dateOfBirth);
+        this.setRelationships(new HashMap<String, Node>());
     }
 
     @Override
