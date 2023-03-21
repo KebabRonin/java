@@ -44,4 +44,9 @@ public class Person implements java.lang.Comparable<Person>, Node {
     public void setRelationships(Map<String, Node> relationships) {
         this.relationships = relationships;
     }
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 }

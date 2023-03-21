@@ -15,4 +15,9 @@ public class Company implements java.lang.Comparable<Node>, Node {
     public String getName() {
         return this.name;
     }
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 }

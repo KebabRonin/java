@@ -1,27 +1,24 @@
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import static org.junit.Assert.*;
 
 public class Main {
+
     public static void main(String[] args) {
-        java.util.List<Node> network = new ArrayList<>();
+
+        Network net = new Network();
         Person p = new Person("Brassat", new Date(2003, Calendar.APRIL, 3));
         Person c = new Person("Glodeanu", new Date(2002, Calendar.JUNE, 2));
         Company com = new Company("Petrom SRL.");
-        network.add(p);
-        network.add(c);
-        network.add(new Person("Arhire", new Date(1996, Calendar.NOVEMBER, 12)));
-        network.add(com);
-        network.add(new Company("Restart"));
-        network.add(new Company("EA"));
+        net.addNode(p);
+        net.addNode(c);
+        net.addNode(com);
 
         p.addRelationship(c);
         c.addRelationship(com);
 
 
-        for(Node i : network) {
+        for(Node i : net.getNodeList()) {
             if (i instanceof Person) {
                 System.out.println("Person " + i.getName());
             }
@@ -30,8 +27,17 @@ public class Main {
             }
         }
 
-        Network net = new Network();
-        net.setNodeList(network);
         System.out.println(net);
+
+        Bonus b = new Bonus();
+        Node cutV = b.getCutV(net);
+        if(cutV == null) {
+            System.out.println("There exists no cut vertex");
+        }
+        else {
+            System.out.println("There exists a cut vertex : " + cutV.getName());
+        }
+
+        new BonusTest().getCutV();
     }
 }

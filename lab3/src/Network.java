@@ -41,13 +41,24 @@ public class Network {
         this.nodeList = nodeList;
     }
 
+    public void sortImportance() {
+        nodeList.sort((a,b) -> computeImportance(b) - computeImportance(a));
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        //Comparator<Node> c = new Comparator<>()
-        nodeList.sort((a,b) -> computeImportance(b) - computeImportance(a));
+
+        sortImportance();
         for (Node n : nodeList) {
-            sb.append(this.computeImportance(n)).append(". ").append(n.getName()).append("\n");
+            sb.append(this.computeImportance(n)).append(". ").append(n.getName());
+            if(n instanceof Person) {
+                sb.append(" : ");
+                for (Node nei : ((Person) n).getRelationships().values()) {
+                    sb.append(nei.getName()).append(", ");
+                }
+            }
+            sb.append("\n");
         }
         return sb.toString();
     }
