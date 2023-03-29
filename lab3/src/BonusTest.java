@@ -12,20 +12,21 @@ class BonusTest {
         Network net = new Network();
         Person p = new Person("Brassat", new Date(2003, Calendar.APRIL, 3));
         Person c = new Person("Glodeanu", new Date(2002, Calendar.JUNE, 2));
-        //Company com = new Company("Petrom SRL.");
+        Person t = new Person("Raul", new Date(2002, Calendar.JUNE, 2));
+        Company com = new Company("Petrom SRL.");
         net.addNode(p);
         net.addNode(c);
+        net.addNode(t);
 
         assertNull(b.getCutV(net), "[TEST] Digraph not connected");
 
         p.addRelationship(c);
+        t.addRelationship(p);
 
-        //assertNull(b.getCutV(net), "[TEST] ");
-        //net.addNode(new Person("Arhire", new Date(1996, Calendar.NOVEMBER, 12)));
-        //net.addNode(com);
-        //net.addNode(new Company("Restart"));
-        //net.addNode(new Company("EA"));
-
-        //c.addRelationship(com);
+        assertEquals(b.getCutV(net), p, "[TEST] Cut vertex in middle");
+        net.addNode(com);
+        assertNull(b.getCutV(net), "[TEST] Company influences connected components");
+        c.addRelationship(com);
+        assertEquals(b.getCutV(net), p, "[TEST] Company influences connected components");
     }
 }

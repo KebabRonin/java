@@ -11,11 +11,13 @@ public class Main {
         Person c = new Person("Glodeanu", new Date(2002, Calendar.JUNE, 2));
         Company com = new Company("Petrom SRL.");
         net.addNode(p);
-        net.addNode(c);
         net.addNode(com);
+        net.addNode(c);
 
         p.addRelationship(c);
         c.addRelationship(com);
+
+        //net.sortImportance();
 
 
         for(Node i : net.getNodeList()) {
@@ -38,6 +40,6 @@ public class Main {
             System.out.println("There exists a cut vertex : " + cutV.getName());
         }
 
-        new BonusTest().getCutV();
+        //new BonusTest().getCutV();
     }
 }
