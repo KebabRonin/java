@@ -2,7 +2,13 @@ package org.example;
 
 public class Robot implements Runnable {
     private String name;
-    private boolean running;
+    private boolean running = false, exitFlag = false;
+
+    private int areaStart, areaEnd;
+    private boolean turnFlag = false, started = false;
+    private int dir = -1, coldir = 1;
+
+    public long nrPlaced = 0;
     Exploration explore;
     int row, col;
     public Robot(String name, int x, int y, Exploration explore) {
@@ -10,6 +16,11 @@ public class Robot implements Runnable {
         row=x;
         col=y;
         this.explore = explore;
+    }
+
+    public void setSearchArea(int start, int end) {
+        areaStart = Math.min(start, end);
+        areaEnd = Math.max(start, end);
     }
 
     public String getName() {
@@ -22,17 +33,28 @@ public class Robot implements Runnable {
 
     public void setRunning(boolean running) {
         this.running = running;
+        if(running == true) {
+            System.out.println("******" + this.name + " started at " + MyTime.getTimeStamp());
+        }
+        else {
+            System.out.println("******" + this.name + " stopped at " + MyTime.getTimeStamp());
+        }
     }
 
     public void run() {
-        if(running) {
-            System.out.println(this.name + " is running!");
+        if(exitFlag) {
+            return;
         }
-        while (running) {
+        this.running = true;
+//        if(running) {
+//            System.out.println(this.name + " is running!");
+//        }
+        while (running && !exitFlag) {
             this.chooseNextVisit();
 
             //pick a new cell to explore
-            explore.getMap().visit(row, col, this);
+            if(explore.getMap().visit(row, col, this))
+                nrPlaced++;
             //make the robot sleep for some time
             try {
                 Thread.sleep(100);
@@ -42,34 +64,57 @@ public class Robot implements Runnable {
         }
     }
     public synchronized void chooseNextVisit() {
-        System.out.println("Choosing");
-        int dir = (int)(Math.random()*10) % 4;
-        while(true) {
-            if(dir == 0) {
-                if(this.row > 0) {
+
+        if(col < areaStart) {
+            if (!started) {
+                coldir = 1;
+                if (row > 0) {
                     this.row -= 1;
-                    return;
-                }
-            }
-            else if(dir == 1) {
-                if(this.row < explore.getMap().getN() - 1) {
-                    this.row += 1;
-                    return;
-                }
-            }
-            else if(dir == 2) {
-                if(this.col > 0) {
-                    this.col -= 1;
-                    return;
+                } else {
+                    this.col += 1;
                 }
             }
             else {
-                if(this.col < explore.getMap().getN() - 1) {
-                    this.col += 1;
-                    return;
-                }
+                coldir = 1;
+                col += coldir;
             }
-            dir = (dir + 1) % 4;
         }
+        else if (col >= explore.getMap().getN() - 1 && (row == 0 || row >= explore.getMap().getN() - 1) && turnFlag == true) {
+            started = true;
+            coldir = -1;
+            col += coldir;
+        }
+        else {
+            started = true;
+            if (row == 0) {
+                if (turnFlag == false) {
+                    turnFlag = true;
+                    dir *= -1;
+                    row += dir;
+                } else {
+                    turnFlag = false;
+                    col += coldir;
+                }
+            } else if (row >= explore.getMap().getN() - 1) {
+                if (turnFlag == false) {
+                    turnFlag = true;
+                    dir *= -1;
+                    row += dir;
+                } else {
+                    turnFlag = false;
+                    col += coldir;
+                }
+            } else {
+                row += dir;
+            }
+        }
+    }
+
+    public void exit() {
+        exitFlag = true;
+    }
+
+    public boolean getRunning() {
+        return running;
     }
 }
