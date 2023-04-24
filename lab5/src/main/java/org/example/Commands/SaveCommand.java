@@ -35,7 +35,7 @@ public class SaveCommand implements Command {
             fr.close();
         }
         catch (IOException e) {
-            throw CommandException(e.toString());
+            throw new CommandException(e.toString());
         }
         finally {
             try {
