@@ -31,6 +31,6 @@ public class ConfigPanel extends JPanel {
     }
 
     private void createGame(ActionEvent actionEvent) {
-        frame.canvas.createBoard();
+        frame.canvas.makeGame();
     }
 }

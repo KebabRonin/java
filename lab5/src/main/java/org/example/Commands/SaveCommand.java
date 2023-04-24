@@ -1,36 +1,33 @@
-package org.example;
+package org.example.Commands;
+
+import org.example.*;
+import org.example.Exceptions.*;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class SaveCommand implements Command{
-    private Catalogue receiver;
+public class SaveCommand implements Command {
     private String path;
 
-    public SaveCommand(String p) {
-        this.path = p;
-    }
-    public SaveCommand(Catalogue c, String p) {
-        this.receiver = c;
-        this.path = p;
-    }
-
     @Override
-    public void setReceiver(Catalogue receiver) {
-        this.receiver = receiver;
-    }
+    public void execute(Catalogue receiver, String args) throws CommandException {
 
-    @Override
-    public void execute() throws CommandException {
+        if(null == args) {
+            throw new InvalidParameterCommandException("Command takes a path as a single argument");
+        }
+
+        path = args.split("\\s+")[0];
+
         try {
             File f = new File(path);
             f.createNewFile();
 
         }
         catch (IOException e) {
-            System.out.println(e);
+            throw new InvalidParameterCommandException("Invalid path");
         }
+
         FileWriter fr = null;
         try {
             fr = new FileWriter(path);
@@ -38,7 +35,7 @@ public class SaveCommand implements Command{
             fr.close();
         }
         catch (IOException e) {
-            throw new CommandException();
+            throw CommandException(e.toString());
         }
         finally {
             try {

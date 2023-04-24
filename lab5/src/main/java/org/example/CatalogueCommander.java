@@ -1,34 +1,42 @@
 package org.example;
 
-import java.io.IOException;
+import org.example.Commands.Command;
+import org.example.Exceptions.CatalogueNotFoundException;
+import org.example.Exceptions.CommandException;
+import org.example.Exceptions.CommandNotFoundException;
+
 import java.util.*;
 
 public class CatalogueCommander {
     private Catalogue catalogue;
-    private Command command;
+    private Map<String, Command> commandList = new HashMap<>();
 
     public CatalogueCommander(Catalogue c) {
         this.catalogue = c;
     }
 
-    public CatalogueCommander setCommand(Command command) {
-        this.command = command;
-        this.command.setReceiver(this.catalogue);
+    public CatalogueCommander addCommand(String commandName, Command command) {
+        this.commandList.put(commandName, command);
         return this;
     }
 
-    public CatalogueCommander executeCommand() {
+    public CatalogueCommander executeString(String commandString) throws CommandException {
+        String[] args = commandString.split("\\s+", 2);
+        Command requestedCommand = commandList.get(args[0]);
+
+        if(null == requestedCommand) {
+            throw new CommandNotFoundException(args[0]);
+        }
+
+        if (null == this.catalogue) {
+            throw new CatalogueNotFoundException();
+        }
+
         try {
-            command.execute();
+            requestedCommand.execute(this.catalogue, args[1]);
         }
-        catch (InvalidParameterCommandException exception) {
-            System.out.println("Invalid Parameter!");
-        }
-        catch (CommandException e) {
-            System.out.println("Generic Command Exception!");
-        }
-        catch (Exception e) {
-            System.out.println(e);
+        catch (ArrayIndexOutOfBoundsException e) {
+            requestedCommand.execute(this.catalogue, null);
         }
         return this;
     }

@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e433575d-72af-44c0-bfdb-c4984859f20d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Exploration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ExplorationMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Robot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/SharedMemory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Token.java" afterDir="false" />
-    </list>
+    <list default="true" id="e433575d-72af-44c0-bfdb-c4984859f20d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +40,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/KebabWarrior/Desktop/java/lab5"
   }
 }]]></component>
   <component name="RunManager">

@@ -1,8 +1,20 @@
 package org.example;
 
-public class GraphModel {
+import java.io.Serializable;
+
+public class GraphModel implements Serializable {
     int numVertices;
     Edges[][] adjMatrix;
+
+    public void reset() {
+        for(int i = 0; i < numVertices; ++i) {
+            for(int j = 0; j < numVertices; ++j) {
+                if(adjMatrix[i][j] != Edges.None) {
+                    adjMatrix[i][j] = Edges.Some;
+                }
+            }
+        }
+    }
 
     public enum Edges {None, Some, P1, P2}
 
