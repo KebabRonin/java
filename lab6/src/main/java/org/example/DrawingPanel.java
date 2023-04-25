@@ -141,7 +141,7 @@ public class DrawingPanel extends JPanel {
         try {
             ImageIO.write(image , "png", new File("GameBoardImage.png"));
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
     }
 
