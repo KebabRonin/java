@@ -55,7 +55,7 @@ public class Exploration {
     }
 
     public static void main(String[] args) {
-        int n = 7;
+        int n = 10;
         Exploration explore = new Exploration(n);
         explore.addRobot(new Robot("Wall-E", ((int)(Math.random()* (n+1)))%n, ((int)(Math.random()* (n+1)))%n, explore));
         explore.addRobot(new Robot("R2D2", ((int)(Math.random()* (n+1)))%n, ((int)(Math.random()* (n+1)))%n, explore));

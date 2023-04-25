@@ -43,7 +43,7 @@ public class ControlPanel extends JPanel {
             frame.canvas.loadGame(gameModel);
             System.out.println("Game loaded from " + filename);
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
     }
 
@@ -53,9 +53,9 @@ public class ControlPanel extends JPanel {
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(frame.canvas.model);
 
-            System.out.println("Game state saved as " + filename);
+            System.out.println("Game saved as " + filename);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
     }
 
