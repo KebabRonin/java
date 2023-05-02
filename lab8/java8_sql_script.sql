@@ -9,20 +9,20 @@ DROP TABLE album_genres CASCADE CONSTRAINTS
 
 CREATE TABLE artists(
     id NUMBER PRIMARY KEY ,
-    name VARCHAR(50)
+    name VARCHAR(100) NOT NULL
 )
 /
 CREATE TABLE albums(
     id NUMBER PRIMARY KEY,
     release_year NUMBER(5),
-    title VARCHAR(50),
+    title VARCHAR(100),
     id_artist NUMBER,
     FOREIGN KEY (id_artist) REFERENCES artists(id)
 )
 /
 CREATE TABLE genres(
     id NUMBER PRIMARY KEY,
-    name VARCHAR(50)
+    name VARCHAR(100) NOT NULL UNIQUE
 )
 /
 CREATE TABLE album_genres(
@@ -59,8 +59,13 @@ BEGIN
   END IF;
 END;
 /
+--DELETE FROM album_genres;
+--DELETE FROM genres;
+--DELETE FROM albums;
 --DELETE FROM artists;
+--COMMIT;
 --INSERT INTO artists(NAME) VALUES('MAMA MIA');
 --SELECT * FROM artists;
 --SELECT * FROM genres;
 --SELECT * FROM albums;
+--SELECT * FROM album_genres;

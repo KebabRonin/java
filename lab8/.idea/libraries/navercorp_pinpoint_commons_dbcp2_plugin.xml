@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="navercorp.pinpoint.commons.dbcp2.plugin" type="repository">
+    <properties maven-id="com.navercorp.pinpoint:pinpoint-commons-dbcp2-plugin:2.5.1" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/pinpoint-commons-dbcp2-plugin-2.5.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
