@@ -10,26 +10,30 @@ public class GameClient {
     public static void main (String[] args) throws IOException {
         String serverAddress = "0.0.0.0"; // The server's IP address
         int PORT = 8100; // The server's port
-        GameClient.socket = new Socket(serverAddress, PORT);
-        try (
+        try {
+            GameClient.socket = new Socket(serverAddress, PORT);
+            try (
 
-                ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-//                BufferedReader in = new BufferedReader (
-//                        new InputStreamReader(socket.getInputStream()));
-                ) {
-            new Thread(GameClient::readThread).start();
-            BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
-            // Send a request to the server
-            System.out.println("Running");
-            while(true) {
-                String request = keyboard.readLine();
-                if(request.equals("exit")) {
-                    return;
+                    ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+                    //                BufferedReader in = new BufferedReader (
+                    //                        new InputStreamReader(socket.getInputStream()));
+            ) {
+                new Thread(GameClient::readThread).start();
+                BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+                // Send a request to the server
+                System.out.println("Running");
+                while (true) {
+                    String request = keyboard.readLine();
+                    if (request.equals("exit")) {
+                        System.exit(0);
+                    }
+                    System.out.println("Sent :" + request);
+                    out.writeObject(request);
                 }
-                System.out.println("Sent :" + request);
-                out.writeObject(request);
+            } catch (UnknownHostException e) {
+                System.err.println("No server listening... " + e);
             }
-        } catch (ConnectException | UnknownHostException e) {
+        } catch (ConnectException e) {
             System.err.println("No server listening... " + e);
         }
     }
@@ -45,11 +49,12 @@ public class GameClient {
                         System.out.println(msg);
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    System.out.println(e);
+                    System.exit(-1);
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println(e);
             System.exit(-1);
         }
     }

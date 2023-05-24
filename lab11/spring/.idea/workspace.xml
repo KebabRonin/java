@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="89abc9b2-0f7b-439e-a685-62700d705f2f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../hw_lab1/hw_lab1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/lab11.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GameServer/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GameServer/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GameServer/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GameServer/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GameServer/.idea/libraries/springframework_boot_spring.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GameServer/.idea/libraries/springframework_boot_spring_starter_web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GameServer/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GameServer/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GameServer/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../hw_lab1/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw_lab1/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab1/bin/lab1/hello_world.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/bin/lab1/hello_world.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab10/Client - Copy/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab10/Client - Copy/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab10/Client - Copy/src/main/java/lab10/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab10/Client - Copy/src/main/java/lab10/GameClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab10/Client - Copy/target/classes/lab10/GameClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab10/Client - Copy/target/classes/lab10/GameClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab10/Client/src/main/java/lab10/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab10/Client/src/main/java/lab10/GameClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab10/Client/target/classes/lab10/GameClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab10/Client/target/classes/lab10/GameClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab10/GameServer/src/main/java/lab10/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab10/GameServer/src/main/java/lab10/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab10/GameServer/target/classes/lab10/GameServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab10/GameServer/target/classes/lab10/GameServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab10/GameServer/target/classes/lab10/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab10/GameServer/target/classes/lab10/Main.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2PuR1BQK9d5z6W1t3DstoL6Bw4N" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "E:/Facultate/java/lab11/demo",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.3908046"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="89abc9b2-0f7b-439e-a685-62700d705f2f" name="Changes" comment="" />
+      <created>1684304767259</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684304767259</updated>
+    </task>
+    <servers />
+  </component>
+</project>
